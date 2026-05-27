@@ -7,7 +7,7 @@ public class LevelOne{
         int evenCount = 0;
 
         for (int number : numbers) {
-            if (number % 2 == 0) {;;;
+            if (number % 2 == 0) {
                 evenCount++;
             } else {
                 oddCount++;
@@ -58,16 +58,6 @@ public class LevelOne{
             if (squareRoot * squareRoot == number){
             result[index++] = number;
         }
-        }
-        return result;
-    }
-//LevelTwo    
-    public static int[] zeroToEnd(int[] numbers){
-        int[] result = new int[numbers.length];
-        int index = 0;
-
-        for (int number : numbers) {
-            if (number != 0) result[index++] = number;
         }
         return result;
     }
