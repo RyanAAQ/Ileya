@@ -30,3 +30,4 @@ function showBooks() {
     return books;
 }
 
+module.exports{addBook, removeBook, updateBook, showBooks};

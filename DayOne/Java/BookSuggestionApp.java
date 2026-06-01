@@ -3,15 +3,15 @@ import java.util.Random;
 import java.util.ArrayList;
 
 
-public class BookSuggestionSystem{
+public class BookSuggestionApp{
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
         Random rand = new Random();
         
         BookSuggestionSystemBackEnd backEnd = new BookSuggestionSystemBackEnd();
         
-        backEnd.addBook("The Hobbit");
-        backEnd.addBook("The Mystery");
+        backEnd.addBook("The Tales of the forbidden negro");
+        backEnd.addBook("Stephen hawking rises again :)");
 
         while (true){
             System.out.println("\n ================================ Welcome to the Ryan's Book Sugge1stion System ================================ ");

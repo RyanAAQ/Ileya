@@ -1,12 +1,16 @@
 public class CaeserCipher{
-    public static String cipher(String word, int shift) {
-        String result = "";
+    public static String cipher(String word, int shift){
+    
+    String letters = "abcdefghijklmnopqrstuvwxyz";
+    String result = "";
 
-        for (int index = 0; index < text.length(); index++) {
-            char letter = text.charAt(index);
+    for (int index = 0; index < word.length(); index++) {
+    char letter = word.charAt(index);
             
-            char shiftedLetter = (char)(letter + shift);
-            result += shiftedLetter;
+    int position = letters.indexOf(letter);
+            
+    int newPosition = position + shift;
+    result += letters.charAt(newPosition);
         }
         return result;
     }
