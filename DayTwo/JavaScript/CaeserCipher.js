@@ -1,22 +1,24 @@
 function cipher(word, shift){
 
-    let alphabet = "abcdefghijklmnopqrstuvwxyz";
+    let letters = "abcdefghijklmnopqrstuvwxyz";
     let result = "";
+    word = word.toLowerCase()
 
     for (let index = 0; index < word.length; index++){
-    let letter = word[index];
-        
-    let position = alphabet.indexOf(letter);
-        
-    let newPosition = position + shift;
-        
-    result += alphabet[newPosition];
+    let letter = word.charAt(index);
+            
+    let position = letters.indexOf(letter);
+            
+    if (position == -1){
+        result += letter;
+        }
+    else{
+    let newPosition = (position + shift) % 26;
+    result += letters.charAt(newPosition);
+            }
+        }
+        return result;
     }
-    return result;
-}
 
-let word = "nigger"
-let shift = 3
-
-console.log(cipher(word, shift))
+console.log(cipher("hello", 3))
 

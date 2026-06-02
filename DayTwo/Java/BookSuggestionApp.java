@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class BookSuggestionApp{
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
-        Random rand = new Random();
+        Random random = new Random();
         
         BookSuggestionSystemBackEnd backEnd = new BookSuggestionSystemBackEnd();
         
@@ -23,7 +23,6 @@ public class BookSuggestionApp{
             System.out.print("Choose between 1-5: ");
             
             int choice = input.nextInt();
-            input.nextLine();
 
             if (choice == 1) {
                 ArrayList<String> allBooks = backEnd.showBooks();
@@ -34,8 +33,8 @@ public class BookSuggestionApp{
                     while (loopChoice.equalsIgnoreCase("yes")) {
                         System.out.println("Book for the Day:");
                         
-                        int randomIndex = rand.nextInt(allBooks.size());
-                        int randomPage = rand.nextInt(100) + 1;
+                        int randomIndex = random.nextInt(allBooks.size());
+                        int randomPage = random.nextInt(100) + 1;
 
                         System.out.println("  Book Title: " + allBooks.get(randomIndex));
                         System.out.println("  Page: " + randomPage);
