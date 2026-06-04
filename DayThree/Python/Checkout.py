@@ -26,7 +26,7 @@ while True:
     if choice == "no":
         break
 
-total_price = sum( total)
+total_price = sum(total)
 discount = total_price * 0.10
 vat = total_price * 0.075
 bill_total = total_price - discount + vat

@@ -34,14 +34,18 @@ public class RyanQuizgrading {
         while (count < students);
         
         System.out.println("\n===== Quiz Grade Report =====");
-
-        for (int index = 0; index < score.length; index++) {
+        System.out.print("Student");
+        for(int blah = 1; blah <= score.length; blah++){
+            System.out.printf("\tQz%d", blah);
+        }
+        System.out.println();
+        for (int index = 0; index < score.length; index++){  
             int sum = 0;
-            System.out.print("Student " + (index + 1) + ":    ");
+            System.out.print("Student " + (index + 1) + ":  ");
             
             for (int counter = 0; counter < score[index].length; counter++) {
                 int quizScore = score[index][counter];
-                System.out.print(quizScore + "\t");
+                System.out.print(quizScore + " ");
                 sum += quizScore;
             }
             
@@ -50,15 +54,23 @@ public class RyanQuizgrading {
         }
         
         System.out.print("Quiz Average: ");
+            int best = 0;
+            double highest = 0;
         for (int counts = 0; counts < quiz; counts++) {
-            int quizSum = 0;
+            double sumQuiz = 0;
             for (int counter = 0; counter < students; counter++) {
-                quizSum += score[counts][counter];
+                sumQuiz += score[counter][counts];
             }
-            double quizAverage = (double)quizSum / students;
-            System.out.printf("%8.2f", quizAverage);
+            double quizAverage = (double)sumQuiz / students;
+            System.out.printf("Qz%d %8.2f  ", counts + 1, quizAverage);
+            
+            if(quizAverage > highest){
+            highest = quizAverage;
+            best = quiz;
+            
+            }
         }
-        System.out.println();
+        System.out.printf("%nBest Quiz: Qz%d (Average %.2f)%n", best, highest);
     }
 }
 
