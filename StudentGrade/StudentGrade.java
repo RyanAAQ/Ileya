@@ -32,8 +32,32 @@ public class StudentGrade{
         System.out.println("Saving ...................");
         System.out.println("Saved successfully");
         count++;
+
+
     }
         while (count < students);
+        System.out.println("\n==============================");
+        System.out.print("STUDENT\t\t");
+        for (int index = 0; index < subjects; index++) {
+        System.out.print("SUB" + (index + 1) + "\t");
+        }
+        System.out.println("TOT\tAVG\tPOS");
+
+        for (int index = 0; index < score.length; index++) {
+            int sum = 0;
+            System.out.print("Student " + (index + 1) + ":    ");
+
+            for (int counter = 0; counter < score[index].length; counter++) {
+                System.out.print(score[index][counter] + "\t");
+            }
+
+            int total = totalScore(score, index, subjects);
+            double average = totalAverage(score, index, subjects);
+            int position = studentPosition(score, index, students, subjects);
+
+            System.out.printf("%d\t%.2f\t%d\n", total, average, position);
+
+        }
         }
         public static int totalScore(int[][] score, int studentIndex, int subjects){
         int total = 0;
