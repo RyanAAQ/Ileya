@@ -2,25 +2,25 @@ import java.util.Scanner;
 
 public class RyanQuizgrading {
     public static void main(String... args) {
-    
+
         Scanner input = new Scanner(System.in);
-        
+
         System.out.print("Enter the number of students enrolled: ");
         int students = input.nextInt();
-        
+
         System.out.print("Enter the amount of Quizzes taken: ");
         int quiz = input.nextInt();
-        
+
         int[][] score = new int[students][quiz];
-        
+
         int count = 0;
-        
+
         do{
             System.out.println("\nStudent " + (count + 1));
             for (int index = 0; index < quiz; index++) {
                 System.out.print("Enter the score for Qz" + (index + 1) + ": ");
                 int currentScore = input.nextInt();
-                
+
                 if ((currentScore < 0) || (currentScore > 100)){
                     System.out.println("Invalid Score, Try again");
                     index--;
@@ -32,23 +32,28 @@ public class RyanQuizgrading {
             count++;
         }
         while (count < students);
-        
+
         System.out.println("\n===== Quiz Grade Report =====");
+        System.out.print("STUDENT\t\t");
+        for (int index = 0; index < quiz; index++) {
+        System.out.print("QZ" + (index + 1) + "\t");
+        }
+        System.out.println("AVG");
 
         for (int index = 0; index < score.length; index++) {
             int sum = 0;
             System.out.print("Student " + (index + 1) + ":    ");
-            
+
             for (int counter = 0; counter < score[index].length; counter++) {
                 int quizScore = score[index][counter];
                 System.out.print(quizScore + "\t");
                 sum += quizScore;
             }
-            
+
             double average = (double)sum / quiz;
             System.out.printf("%.2f\n", average);
         }
-        
+
         System.out.print("Quiz Average: ");
             int best = 0;
             double highest = 0;
@@ -58,15 +63,14 @@ public class RyanQuizgrading {
                 sumQuiz += score[counter][counts];
             }
             double quizAverage = (double)sumQuiz / students;
-            System.out.printf("Qz%d %8.2f", counts + 1, quizAverage);
-            
+            System.out.printf("\tQZ%d: %.1f\t", counts + 1, quizAverage);
+
             if(quizAverage > highest){
             highest = quizAverage;
             best = quiz;
-            
+
             }
         }
         System.out.printf("%nBest Quiz: %d (Average %.2f)%n", best+1, highest);
     }
 }
-
