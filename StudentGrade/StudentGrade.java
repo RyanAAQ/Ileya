@@ -34,18 +34,7 @@ public class StudentGrade{
         count++;
     }
         while (count < students);
-
-        System.out.println("\n========================================================");
-        System.out.println("STUDENT\t\tTOT\tAVE\tPOS");
-        System.out.println("========================================================");
-        for (int index = 0; index < students; index++) {
-            int total = totalScore(score, index, subjects);
-            double average = totalAverage(score, index, subjects);
-            int position = studentPosition(score, index, students, subjects);
-            System.out.printf("Student %d\t%d\t%.2f\t%d\n", (index + 1), total, average, position);
         }
-
-       }
         public static int totalScore(int[][] score, int studentIndex, int subjects){
         int total = 0;
         for(int index = 0; index < subjects; index++){
