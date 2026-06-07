@@ -18,7 +18,7 @@ public class StudentGrade{
     do{
         System.out.println("\nStudent " + (count + 1));
         for (int index = 0; index < subjects; index++) {
-        System.out.print("Enter the score for Qz" + (index + 1) + ": ");
+        System.out.print("Enter the score for SUB" + (index + 1) + ": ");
         int currentScore = input.nextInt();
 
         if ((currentScore < 0) || (currentScore > 100)){
@@ -32,20 +32,17 @@ public class StudentGrade{
         System.out.println("Saving ...................");
         System.out.println("Saved successfully");
         count++;
-
-
     }
-        while (count < students);
-        System.out.println("\n==============================");
+    while (count < students);
+        System.out.println("\n==============================================");
         System.out.print("STUDENT\t\t");
         for (int index = 0; index < subjects; index++) {
-        System.out.print("SUB" + (index + 1) + "\t");
+        System.out.printf("SUB%d\t", index + 1);
         }
         System.out.println("TOT\tAVG\tPOS");
 
         for (int index = 0; index < score.length; index++) {
-            int sum = 0;
-            System.out.print("Student " + (index + 1) + ":    ");
+            System.out.print("Student " + (index + 1) + ":\t");
 
             for (int counter = 0; counter < score[index].length; counter++) {
                 System.out.print(score[index][counter] + "\t");
@@ -59,27 +56,25 @@ public class StudentGrade{
 
         }
         }
-        public static int totalScore(int[][] score, int studentIndex, int subjects){
+    public static int totalScore(int[][] score, int studentIndex, int subjects){
         int total = 0;
         for(int index = 0; index < subjects; index++){
             total += score[studentIndex][index];
             }
         return total;
 }
-
     public static double totalAverage(int[][] score, int studentIndex, int subjects){
         if(subjects == 0){
             return 0.0;
         }
         return (double) totalScore(score, studentIndex, subjects) / subjects;
     }
-
     public static int studentPosition(int[][] score, int studentIndex, int students, int subjects) {
-        int targetTotal = totalScore(score, studentIndex, subjects);
+        int target = totalScore(score, studentIndex, subjects);
         int rank = 1;
 
         for (int index = 0; index < students; index++) {
-            if (totalScore(score, index, subjects) > targetTotal) {
+            if (totalScore(score, index, subjects) > target) {
                 rank++;
             }
         }
